@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -16,4 +15,4 @@ class movie_api extends React.Component {
 
 const container = document.getElementsByClassName('app-container')[0];
 
-ReactDOM.render(React.createElement(MyFlixApplication), cointainer);
+ReactDOM.render(React.createElement(movie_api), container);
