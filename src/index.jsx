@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 
 import './index.scss';
 
-class movie_api extends React.Component {
+class MyFlixApplication extends React.Component {
     render() {
         return (
             <div className="movie_api">
@@ -16,4 +16,4 @@ class movie_api extends React.Component {
 
 const container = document.getElementsByClassName('app-container')[0];
 
-ReactDOM.render(React.createElement(MyFlixApplication), cointainer);
+ReactDOM.render(React.createElement(MyFlixApplication), container);
