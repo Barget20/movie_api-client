@@ -1,8 +1,5 @@
 
 import React from 'react';
-import {MovieCard} from '../movie-card/movie-card';
-import {MovieView} from '../movie-view/movie-view';
-
 
 export class MovieView extends React.Component {
     render() {
@@ -24,15 +21,5 @@ export class MovieView extends React.Component {
                 <button onClick= {() => { onBackClick(null); }}>Back</button>
             </div>
         );
-    }
-}
-
-export class MainView extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            movies: [...],
-            selectedMovie: null
-        };
     }
 }
