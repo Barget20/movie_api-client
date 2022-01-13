@@ -1,7 +1,4 @@
-
 import React from 'react';
-
-import { MovieCard } from '../movie-card/movie-card';
 
 export class MovieCard extends React.Component {
     render() {
@@ -9,3 +6,4 @@ export class MovieCard extends React.Component {
         return <div className="movie-card" onClick={() => { onMovieClick(movie); }}>{movie.Title}</div>;
     }
 }
+

@@ -1010,11 +1010,10 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactDom = require("react-dom");
 var _reactDomDefault = parcelHelpers.interopDefault(_reactDom);
 var _mainView = require("./components/main-view/main-view");
-var _mainViewDefault = parcelHelpers.interopDefault(_mainView);
 var _indexScss = require("./index.scss");
 class MyFlixApplication extends _reactDefault.default.Component {
     render() {
-        return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_mainViewDefault.default, {
+        return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_mainView.MainView, {
         }, void 0, false, {
             fileName: "src/index.jsx",
             lineNumber: 10,
@@ -22791,7 +22790,7 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _movieCard = require("../movie-card/movie-card");
-var _movieView = require("../movie-card/movie-view");
+var _movieView = require("../movie-view/movie-view");
 class MainView extends _reactDefault.default.Component {
     constructor(){
         super();
@@ -22825,17 +22824,41 @@ class MainView extends _reactDefault.default.Component {
     }
     render() {
         const { movies , selectedMovie  } = this.state;
-        if (movies.length === 0) {
-            var newSelectedMovie, movie, movie1;
-            return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                className: "main-view",
-                children: " The list is empty!"
+        if (movies.length === 0) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+            className: "main-view",
+            children: " The list is empty!"
+        }, void 0, false, {
+            fileName: "src/components/main-view/main-view.jsx",
+            lineNumber: 26,
+            columnNumber: 41
+        }, this));
+        return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+            className: "main-view",
+            children: selectedMovie ? /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieView.MovieView, {
+                movie: selectedMovie,
+                onBackClick: (newSelectedMovie)=>{
+                    this.setSelectedMovie(newSelectedMovie);
+                }
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 27,
-                columnNumber: 20
-            }, this));
-        }
+                lineNumber: 29,
+                columnNumber: 38
+            }, this) : movies.map((movie1)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieCard.MovieCard, {
+                    movie: movie1,
+                    onMovieClick: (movie)=>{
+                        this.setSelectedMovie(movie);
+                    }
+                }, movie1._id, false, {
+                    fileName: "src/components/main-view/main-view.jsx",
+                    lineNumber: 31,
+                    columnNumber: 25
+                }, this)
+            )
+        }, void 0, false, {
+            fileName: "src/components/main-view/main-view.jsx",
+            lineNumber: 28,
+            columnNumber: 17
+        }, this));
     }
 }
 
@@ -22844,7 +22867,7 @@ class MainView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"3jZUD","react":"4mchR","../movie-card/movie-card":"04zIX","../movie-card/movie-view":"gJBgq","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"04zIX":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"3jZUD","react":"4mchR","../movie-card/movie-card":"04zIX","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","../movie-view/movie-view":"8S478"}],"04zIX":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$6989 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -22858,7 +22881,6 @@ parcelHelpers.export(exports, "MovieCard", ()=>MovieCard
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _movieCard = require("../movie-card/movie-card");
 class MovieCard extends _reactDefault.default.Component {
     render() {
         const { movie , onMovieClick  } = this.props;
@@ -22870,7 +22892,7 @@ class MovieCard extends _reactDefault.default.Component {
             children: movie.Title
         }, void 0, false, {
             fileName: "src/components/movie-card/movie-card.jsx",
-            lineNumber: 9,
+            lineNumber: 6,
             columnNumber: 16
         }, this));
     }
@@ -22881,7 +22903,7 @@ class MovieCard extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"3jZUD","react":"4mchR","../movie-card/movie-card":"04zIX","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"ciiiV":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"3jZUD","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"ciiiV":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -23031,11 +23053,11 @@ function registerExportsForReactRefresh(module) {
     }
 }
 
-},{"react-refresh/runtime":"aeH4U"}],"gJBgq":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$99c9 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react-refresh/runtime":"aeH4U"}],"8S478":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$4e70 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$99c9.prelude(module);
+$parcel$ReactRefreshHelpers$4e70.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -23047,7 +23069,7 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 class MovieView extends _reactDefault.default.Component {
     render() {
-        const { movie  } = this.props;
+        const { movie , onBackClick  } = this.props;
         return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
             className: "movie-view",
             children: [
@@ -23056,12 +23078,12 @@ class MovieView extends _reactDefault.default.Component {
                     children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("img", {
                         src: movie.ImagePath
                     }, void 0, false, {
-                        fileName: "src/components/movie-card/movie-view.jsx",
+                        fileName: "src/components/movie-view/movie-view.jsx",
                         lineNumber: 11,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
-                    fileName: "src/components/movie-card/movie-view.jsx",
+                    fileName: "src/components/movie-view/movie-view.jsx",
                     lineNumber: 10,
                     columnNumber: 17
                 }, this),
@@ -23072,7 +23094,7 @@ class MovieView extends _reactDefault.default.Component {
                             className: "label",
                             children: "Title: "
                         }, void 0, false, {
-                            fileName: "src/components/movie-card/movie-view.jsx",
+                            fileName: "src/components/movie-view/movie-view.jsx",
                             lineNumber: 14,
                             columnNumber: 21
                         }, this),
@@ -23080,13 +23102,13 @@ class MovieView extends _reactDefault.default.Component {
                             className: "value",
                             children: movie.Title
                         }, void 0, false, {
-                            fileName: "src/components/movie-card/movie-view.jsx",
+                            fileName: "src/components/movie-view/movie-view.jsx",
                             lineNumber: 15,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
-                    fileName: "src/components/movie-card/movie-view.jsx",
+                    fileName: "src/components/movie-view/movie-view.jsx",
                     lineNumber: 13,
                     columnNumber: 17
                 }, this),
@@ -23097,7 +23119,7 @@ class MovieView extends _reactDefault.default.Component {
                             className: "label",
                             children: " Description: "
                         }, void 0, false, {
-                            fileName: "src/components/movie-card/movie-view.jsx",
+                            fileName: "src/components/movie-view/movie-view.jsx",
                             lineNumber: 18,
                             columnNumber: 21
                         }, this),
@@ -23108,13 +23130,13 @@ class MovieView extends _reactDefault.default.Component {
                                 movie.Description
                             ]
                         }, void 0, true, {
-                            fileName: "src/components/movie-card/movie-view.jsx",
+                            fileName: "src/components/movie-view/movie-view.jsx",
                             lineNumber: 19,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
-                    fileName: "src/components/movie-card/movie-view.jsx",
+                    fileName: "src/components/movie-view/movie-view.jsx",
                     lineNumber: 17,
                     columnNumber: 17
                 }, this),
@@ -23124,20 +23146,20 @@ class MovieView extends _reactDefault.default.Component {
                     },
                     children: "Back"
                 }, void 0, false, {
-                    fileName: "src/components/movie-card/movie-view.jsx",
+                    fileName: "src/components/movie-view/movie-view.jsx",
                     lineNumber: 21,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
-            fileName: "src/components/movie-card/movie-view.jsx",
+            fileName: "src/components/movie-view/movie-view.jsx",
             lineNumber: 9,
             columnNumber: 13
         }, this));
     }
 }
 
-  $parcel$ReactRefreshHelpers$99c9.postlude(module);
+  $parcel$ReactRefreshHelpers$4e70.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
