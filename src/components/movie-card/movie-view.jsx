@@ -1,5 +1,8 @@
 
 import React from 'react';
+import {MovieCard} from '../movie-card/movie-card';
+import {MovieView} from '../movie-view/movie-view';
+
 
 export class MovieView extends React.Component {
     render() {
@@ -18,6 +21,7 @@ export class MovieView extends React.Component {
                     <span className='label'> Description: </span>
                     <span className='value'> {movie.Description}</span>     
                 </div>
+                <button onClick= {() => { onBackClick(null); }}>Back</button>
             </div>
         );
     }
