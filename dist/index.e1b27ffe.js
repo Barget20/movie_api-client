@@ -22796,6 +22796,7 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _loginView = require("../login-view/login-view");
+// import { RegistrationView } from '../registration-view';
 var _movieCard = require("../movie-card/movie-card");
 var _movieView = require("../movie-view/movie-view");
 class MainView extends _reactDefault.default.Component {
@@ -22832,14 +22833,14 @@ class MainView extends _reactDefault.default.Component {
             onLoggedIn: (user)=>this.onLoggedIn(user)
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 45,
+            lineNumber: 46,
             columnNumber: 27
         }, this));
         if (movies.length === 0) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
             className: "main-view"
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 47,
+            lineNumber: 48,
             columnNumber: 41
         }, this));
         return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -22851,7 +22852,7 @@ class MainView extends _reactDefault.default.Component {
                 }
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 50,
+                lineNumber: 51,
                 columnNumber: 38
             }, this) : movies.map((movie)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieCard.MovieCard, {
                     movie: movie,
@@ -22860,13 +22861,13 @@ class MainView extends _reactDefault.default.Component {
                     }
                 }, movie._id, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 52,
+                    lineNumber: 53,
                     columnNumber: 25
                 }, this)
             )
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 49,
+            lineNumber: 50,
             columnNumber: 17
         }, this));
     }
