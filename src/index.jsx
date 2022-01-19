@@ -6,10 +6,10 @@ import './index.scss';
 
 class MyFlixApplication extends React.Component {
 
-    constructor() {
+   // constructor() {
        //Executed once component is created//
         // super();
-    }
+   // }
 
     render() {
         return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
+import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 
@@ -9,15 +10,16 @@ export class MainView extends React.Component {
         super();
         this.state = {
             movies: [],
-            selectedMmovie: null
-        }
+            selectedMmovie: null,
+            user: null
+        };
     }
 
     componentDidMount() {
         axios.get('https://movie-api-2022.herokuapp.com/movies')
         .then(response => {
             this.setState({
-                movies: response.date
+                movies: response.data
             });
         })
         .catch(error => {
@@ -31,9 +33,17 @@ export class MainView extends React.Component {
         });
     }
 
+    onLoggedIn(user) {
+        this.setState({
+            user
+        });
+    }
+
     render () {
         const { movies, selectedMovie} = this.state;
           
+        if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+
         if (movies.length === 0) return <div className="main-view"></div>;
             return(
                 <div className="main-view">
