@@ -1,8 +1,15 @@
 import React from 'react';
 import axios from 'axios';
 
+<<<<<<< Updated upstream
+=======
+import '../main-view/main-view.scss';
+import { LoginView } from '../login-view/login-view';
+// import { RegistrationView } from '../registration-view';
+>>>>>>> Stashed changes
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import Row from 'react-bootstrap/Row';
 
 export class MainView extends React.Component {
     constructor() {
@@ -40,12 +47,19 @@ export class MainView extends React.Component {
           
         if (movies.length === 0) return <div className="main-view"></div>;
             return(
-                <div className="main-view">
-                    {selectedMovie ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} /> 
+              
+                 <div className="main-view">
+                    {selectedMovie ? (
+                        <Row className="justify-content-md-center"> 
+                            <Col md={6}>
+                            <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} /> 
+                            </Col>
+                        </Row>
+                    )
                     : movies.map(movie => (
                         <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }}/>
                     ))}     
-                </div>
+                 </div>
             );
     };
 }
