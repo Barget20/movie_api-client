@@ -1,12 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 
-<<<<<<< Updated upstream
-=======
 import '../main-view/main-view.scss';
 import { LoginView } from '../login-view/login-view';
 // import { RegistrationView } from '../registration-view';
->>>>>>> Stashed changes
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import Row from 'react-bootstrap/Row';

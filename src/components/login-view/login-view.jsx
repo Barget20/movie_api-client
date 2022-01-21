@@ -1,8 +1,8 @@
-<<<<<<< Updated upstream
-=======
 import React, { useState} from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+
+import axios from 'axios';
 
 //import '../login-view/login-view.scss';
 
@@ -12,10 +12,17 @@ export function LoginView(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(username, password);
-        // sends a request to the server for authentication, 
-        // then call props.onLoggedIn(ushername)
-        props.onLoggedIn(username)
+        axios.post('YOUR_API_URL/login', {
+            Username: username,
+            Password: password
+        })
+        .then(response => {
+            const data= response.data;
+            props.onLoggedIn(data);
+        })
+        .catch(e => {
+            console.log('no such user')
+        });
     };
 
 
@@ -23,12 +30,12 @@ export function LoginView(props) {
             <Form>
                 <Form.Group controlId="formUsername">
                     <Form.Label>Username:</Form.Label>
-                    <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
+                    <Form.Control type="text" placeholder="Enter username" value={username} onChange={e => setUsername(e.target.value)} />
                 </Form.Group>
 
                 <Form.Group controlId="formPassword">
                     <Form.Label>Password:</Form.Label>
-                    <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
+                    <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
                 </Form.Group>
                 <Button varient="primary" type="submit" onClick={handleSubmit}>Submit</Button>
             </Form>
@@ -46,4 +53,3 @@ export function LoginView(props) {
              //       <button type="button" onClick={handleSubmit}>Submit</button>
        // );
 //}
->>>>>>> Stashed changes
