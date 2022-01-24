@@ -12,7 +12,8 @@ export function LoginView(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('YOUR_API_URL/login', {
+        //need to add in API login//
+        axios.post('https://movie-api-2022.herokuapp.com/movies', {
             Username: username,
             Password: password
         })

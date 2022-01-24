@@ -22830,13 +22830,36 @@ class MainView extends _reactDefault.default.Component {
             selectedMovie: newSelectedMovie
         });
     }
+    onLoggedIn(authData) {
+        console.log(authData);
+        this.setState({
+            user: authData.user.Username
+        });
+        localStorage.setItem('token', authData.token);
+        localStorage.setItem('user', authData.user.Username);
+        this.getMovies(authData.token);
+    }
+    getMovies(token) {
+        _axiosDefault.default.get('https://movie-api-2022.herokuapp.com/movies', {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            // Assign the result to the state
+            this.setState({
+                movies: response.data
+            });
+        }).catch(function(error) {
+            console.log(error);
+        });
+    }
     render() {
         const { movies , selectedMovie  } = this.state;
         if (movies.length === 0) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
             className: "main-view"
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 43,
+            lineNumber: 69,
             columnNumber: 41
         }, this));
         return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -22852,17 +22875,17 @@ class MainView extends _reactDefault.default.Component {
                         }
                     }, void 0, false, {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 50,
+                        lineNumber: 76,
                         columnNumber: 29
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 49,
+                    lineNumber: 75,
                     columnNumber: 29
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 48,
+                lineNumber: 74,
                 columnNumber: 25
             }, this) : movies.map((movie)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieCard.MovieCard, {
                     movie: movie,
@@ -22871,13 +22894,13 @@ class MainView extends _reactDefault.default.Component {
                     }
                 }, movie._id, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 55,
+                    lineNumber: 81,
                     columnNumber: 25
                 }, this)
             )
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 46,
+            lineNumber: 72,
             columnNumber: 18
         }, this));
     }
@@ -25179,7 +25202,8 @@ function LoginView(props) {
     const [password, setPassword] = _react.useState('');
     const handleSubmit = (e)=>{
         e.preventDefault();
-        _axiosDefault.default.post('YOUR_API_URL/login', {
+        //need to add in API login//
+        _axiosDefault.default.post('https://movie-api-2022.herokuapp.com/movies', {
             Username: username,
             Password: password
         }).then((response)=>{
@@ -25198,7 +25222,7 @@ function LoginView(props) {
                         children: "Username:"
                     }, void 0, false, {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 32,
+                        lineNumber: 33,
                         columnNumber: 21
                     }, this),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
@@ -25208,13 +25232,13 @@ function LoginView(props) {
                         onChange: (e)=>setUsername(e.target.value)
                     }, void 0, false, {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 33,
+                        lineNumber: 34,
                         columnNumber: 21
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 31,
+                lineNumber: 32,
                 columnNumber: 17
             }, this),
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Group, {
@@ -25224,7 +25248,7 @@ function LoginView(props) {
                         children: "Password:"
                     }, void 0, false, {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 37,
+                        lineNumber: 38,
                         columnNumber: 21
                     }, this),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
@@ -25234,13 +25258,13 @@ function LoginView(props) {
                         onChange: (e)=>setPassword(e.target.value)
                     }, void 0, false, {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 38,
+                        lineNumber: 39,
                         columnNumber: 21
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 36,
+                lineNumber: 37,
                 columnNumber: 17
             }, this),
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
@@ -25250,13 +25274,13 @@ function LoginView(props) {
                 children: "Submit"
             }, void 0, false, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 40,
+                lineNumber: 41,
                 columnNumber: 17
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/login-view/login-view.jsx",
-        lineNumber: 30,
+        lineNumber: 31,
         columnNumber: 13
     }, this));
 }
