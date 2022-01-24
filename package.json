@@ -543,9 +543,6 @@
     "yallist": "^4.0.0",
     "yaml": "^1.10.2"
   },
-  "devDependencies": {
-    "@parcel/transformer-sass": "^2.2.0"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -558,5 +555,8 @@
   "bugs": {
     "url": "https://github.com/Barget20/Movie_API-Client/issues"
   },
-  "homepage": "https://github.com/Barget20/Movie_API-Client#readme"
+  "homepage": "https://github.com/Barget20/Movie_API-Client#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.2.1"
+  }
 }

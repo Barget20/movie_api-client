@@ -1,9 +1,10 @@
 import React from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
+import './main-view.scss';
 
-import '../main-view/main-view.scss';
 import { LoginView } from '../login-view/login-view';
-// import { RegistrationView } from '../registration-view';
+import { RegistrationView } from '../registration-view/registration-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import Row from 'react-bootstrap/Row';
@@ -13,9 +14,6 @@ export class MainView extends React.Component {
         super();
         this.state = {
             movies: [
-               // {_id: 1, Title: 'Inception', Description: 'desc1...', ImagePath: '...'},
-                //{_id: 2, Title: 'The Shawshank Redemption', Description: 'desc2...', ImagePath: '...'},
-                //{_id: 3, Title: 'Gladiator', Description: 'desc3...', ImagePath: '...' }
             ],
             selectedMmovie: null
         }
