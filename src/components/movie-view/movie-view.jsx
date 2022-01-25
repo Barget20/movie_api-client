@@ -1,5 +1,6 @@
 
 import React from 'react';
+import React-Bootstrap from 'react-bootstrap'
 
 import './movie-view.scss'
 
