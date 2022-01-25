@@ -407,6 +407,7 @@
     "prepend-http": "^1.0.4",
     "process": "^0.11.10",
     "process-nextick-args": "^2.0.1",
+    "prop-types": "^15.8.1",
     "protocols": "^1.4.8",
     "psl": "^1.8.0",
     "public-encrypt": "^4.0.3",
