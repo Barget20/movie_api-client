@@ -55,6 +55,13 @@ export function LoginView(props) {
   );
 }
 
+LoginView.propTypes = {
+  user: PropTypes.shape({
+    Title: PropTypes.string,
+  }).isRequired,
+  OnLoggedIn: PropTypes.func.isrequired,
+};
+
 //   <label>
 //     Username:
 //     <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
