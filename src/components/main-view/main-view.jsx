@@ -30,6 +30,7 @@ export class MainView extends React.Component {
       .catch((error) => {
         console.log(error);
       })
+      //do we really need this second one?
       .catch((error) => {
         consolge.log(error);
       });
