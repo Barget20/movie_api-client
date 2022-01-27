@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 
 import "./movie-view.scss";
 
@@ -71,3 +71,5 @@ MovieView.propTypes = {
   }).isRequired,
   onMovieClick: PropTypes.func.isRequired,
 };
+
+export default MainView;
