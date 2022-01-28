@@ -71,5 +71,3 @@ MovieView.propTypes = {
   }).isRequired,
   onMovieClick: PropTypes.func.isRequired,
 };
-
-export default MainView;

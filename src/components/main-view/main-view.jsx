@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import PropTypes from "prop-types";
 
 import "./main-view.scss";
 import { LoginView } from "../login-view/login-view";
@@ -29,10 +28,6 @@ export class MainView extends React.Component {
       })
       .catch((error) => {
         console.log(error);
-      })
-      //do we really need this second one?
-      .catch((error) => {
-        consolge.log(error);
       });
   }
 
@@ -70,11 +65,11 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, selectedMovie } = this.state;
+    const { movies, selectedMovie, user } = this.state;
 
-    if (movies.length === 0) return <div className="main-view"></div>;
+    if (movies.length === 0) return <div className="main-view" />;
     return (
-      <div className="main-view">
+      <Row className="main-view">
         <Nav
           activeKey="/home"
           onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
@@ -96,7 +91,7 @@ export class MainView extends React.Component {
         </Nav>
         {selectedMovie ? (
           <Row className="justify-content-md-center">
-            <Col md={6}>
+            <Col md={3}>
               <MovieView
                 movie={selectedMovie}
                 onBackClick={(newSelectedMovie) => {
@@ -116,7 +111,9 @@ export class MainView extends React.Component {
             />
           ))
         )}
-      </div>
+      </Row>
     );
   }
 }
+
+export default MainView;
