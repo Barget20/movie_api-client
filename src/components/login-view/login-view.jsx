@@ -10,21 +10,41 @@ export function LoginView(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const [usernameErr, setUsernameErr] = useState("");
+  const [passwordErr, setPasswordErr] = useState("");
+
+  const validate = () => {
+    let isReq = true;
+    if (!username) {
+      setUsernameErr("Username Required");
+      isReq = false;
+    }
+    if (!password) {
+      setPasswordErr("Password Required");
+      isReq = false;
+    } else if (password.length < 6) {
+      setPassword("Password must be 6 characters long");
+    }
+    return isReq;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    //need to add in API login//
-    axios
-      .post("https://movie-api-2022.herokuapp.com/login", {
-        Username: username,
-        Password: password,
-      })
-      .then((response) => {
-        const data = response.data;
-        props.onLoggedIn(data);
-      })
-      .catch((e) => {
-        console.log("no such user");
-      });
+    const isReq = validate();
+    if (isReq) {
+      axios
+        .post("https://movie-api-2022.herokuapp.com/login", {
+          Username: username,
+          Password: password,
+        })
+        .then((response) => {
+          const data = response.data;
+          props.onLoggedIn(data);
+        })
+        .catch((e) => {
+          console.log("no such user");
+        });
+    }
   };
 
   return (
@@ -37,6 +57,7 @@ export function LoginView(props) {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
+        {usernameErr && <p>{usernameErr}</p>}
       </Form.Group>
 
       <Form.Group controlId="formPassword">
@@ -47,6 +68,7 @@ export function LoginView(props) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        {passwordErr && <p>{passwordErr}</p>}
       </Form.Group>
       <Button varient="primary" type="submit" onClick={handleSubmit}>
         Submit

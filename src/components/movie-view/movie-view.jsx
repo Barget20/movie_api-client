@@ -20,6 +20,15 @@ export class MovieView extends React.Component {
   render() {
     const { movie, onBackClick } = this.props;
 
+    // Not sure where to put this. problems pop up
+    // <Link to={`/directors/${movie.Director.Name}`}>
+    //   <Button varient="link">Director</Button>
+    // </Link>
+
+    // <Link to={`/genres/${movie.Genre.Name}`}>
+    //   <Button varient="link">Genre</Button>
+    // </Link>
+
     return (
       <div className="movie-view">
         <div className="movie-poster">
