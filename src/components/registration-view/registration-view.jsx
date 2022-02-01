@@ -49,12 +49,12 @@ export function RegistrationView(props) {
     const isReq = validate();
     if (isReq) {
       axios
-        .post("https://movie-api-2022.herokuapp.com/register", {
+        .post("https://movie-api-2022.herokuapp.com/users", {
           Name: name,
           Username: username,
           Password: password,
           Email: email,
-          Birthday: bithday,
+          Birthday: birthday,
         })
         .then((response) => {
           const data = response.data;
@@ -63,8 +63,7 @@ export function RegistrationView(props) {
           window.open("/", "_self");
         })
         .catch((e) => {
-          console.error(response);
-          alert("unable to register");
+          console.error("error registering the user");
         });
     }
   };
