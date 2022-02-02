@@ -7,6 +7,10 @@ import { Link } from "react-router-dom";
 
 //import '../movie-card/movie-card.scss';
 
+<Link to={`/movies/${movie._id}`}>
+  <Button varient="link">Open</Button>
+</Link>;
+
 export class MovieCard extends React.Component {
   render() {
     const { movie } = this.props;

@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import "./movie-view.scss";
@@ -30,46 +31,30 @@ export class MovieView extends React.Component {
     // </Link>
 
     return (
-      <div className="movie-view">
-        <div className="movie-poster">
-          <img src={movie.ImagePath} />
-        </div>
-        <div className="movie-table">
-          <span className="label">Title: </span>
-          <span className="value">{movie.Title}</span>
-        </div>
-        <div className="movie-description curtain">
-          <div className="curtain__wrapper">
-            <input type="checkbox" checked />
-
-            <div className="curtain__panel curtain__panel--left">
-              <h1></h1>
+      <>
+        {movie && (
+          <div className="movie-view">
+            <div className="movie-poster">
+              <img src={movie.ImagePath} />
             </div>
-            {/* //curtain__panel */}
-
-            <div className="curtain__content">
-              <span className="label"> Description: </span>
-              <span className="value"> {movie.Description}</span>
+            <div className="movie-table">
+              <span className="label">Title: </span>
+              <span className="value">{movie.Title}</span>
             </div>
-
-            <div className="curtain__panel curtain__panel--right">
-              <h1></h1>
-            </div>
-            {/* <!-- curtain__panel --> */}
+            <span className="label">Description: </span>
+            <span className="value"> {movie.Description}</span>
+            <Link to={``}>{movie.Genre.Name}</Link>
+            <Link to={``}>{movie.Director.Name}</Link>
+            <Button
+              onClick={() => {
+                onBackClick(null);
+              }}
+            >
+              Back
+            </Button>
           </div>
-          {/* <!-- curtain__wrapper --> */}
-          <span className="label"> Description: </span>
-          <span className="value"> {movie.Description}</span>
-        </div>
-
-        <Button
-          onClick={() => {
-            onBackClick(null);
-          }}
-        >
-          Back
-        </Button>
-      </div>
+        )}
+      </>
     );
   }
 }
