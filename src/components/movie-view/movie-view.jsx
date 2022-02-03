@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -20,15 +21,6 @@ export class MovieView extends React.Component {
 
   render() {
     const { movie, onBackClick } = this.props;
-
-    // Not sure where to put this. problems pop up
-    // <Link to={`/directors/${movie.Director.Name}`}>
-    //   <Button varient="link">Director</Button>
-    // </Link>
-
-    // <Link to={`/genres/${movie.Genre.Name}`}>
-    //   <Button varient="link">Genre</Button>
-    // </Link>
 
     return (
       <>
