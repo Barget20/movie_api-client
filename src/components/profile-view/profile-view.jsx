@@ -1,30 +1,47 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Form, Button, Card } from "react-bootstrap";
+import { Form, Button, Card, Figure } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ".profile-view.scss";
 
 
 return (
-  <div>
+  <Card>
+    <Card.Body>
+      <Row>
+        <Col xs={12}>
+          <h4>Favorite Movies</h4>
+        </Col>
+      </Row>
+    {/* <div>
     <p>User: {user.Username}</p>
     <p>Email: {user.Email}</p>
-    <div>
-      <h2>Favorite Movies</h2>
-      {favoriteMovieList.map((movies) => {
+    <div> */}
+      {favoriteMovieList.map((ImagePath, Title, _id) => {
         return (
-          <div key={movies._id}>
-            <img src={movies.ImagePath} />
-            <Link to={`/movies/${movies._id}`}>
-              <h4>{movies.Title}</h4>
-            </Link>
-            <button varient="secondary" onClick={() => removeFav(movies._id)}>
+          <Col xs={12} md={6} lg={3} key={_id} className="fav-movie">
+          <Figure>
+          <Link to={`/movies/${_id}`}>
+            <Figure.Image
+            src={movies.ImagePath}
+            alt={movies.Title}
+            />
+            <Figure.Caption>
+              {Title}
+            </Figure.Caption>
+          </Link>
+          </Figure>
+            
+            <Button varient="secondary" onClick={() => removeFav(_id)}>
               Remove from list
-            </button>
-          </div>
-        );
-      })}
-    </div>
+            </Button>
+            </Col>
+        )})}
+      </Card.Body>
+  </Card>
+);
+
+
     <form className="profile-form" onSubmit={(e) => handleSubmit(e)}>
       <h2>Want to change some info?</h2>
       <label>Username:</label>
@@ -53,5 +70,3 @@ return (
         Update
       </button>
     </form>
-  </div>
-);
