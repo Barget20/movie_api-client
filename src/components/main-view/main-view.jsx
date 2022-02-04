@@ -7,6 +7,8 @@ import { LoginView } from "../login-view/login-view";
 import { RegistrationView } from "../registration-view/registration-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
+import { GenreView } from "../genre-view/genre-view";
+import { DirectorView } from "../director-view/director-view";
 import { Row, Col, Button, Card, Navbar, Nav } from "react-bootstrap";
 
 export class MainView extends React.Component {
@@ -136,7 +138,7 @@ export class MainView extends React.Component {
         />
         <Route
           exact
-          path="/genres:name"
+          path="/genres/:name"
           render={({ match }) => {
             if (!user)
               return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;

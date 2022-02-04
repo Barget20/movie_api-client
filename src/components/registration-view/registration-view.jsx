@@ -77,7 +77,7 @@ export function RegistrationView(props) {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        {vales.nameErr && <p>{values.nameErr}</p>}
+        {values.nameErr && <p>{values.nameErr}</p>}
       </Form.Group>
 
       <Form.Group controlId="formUsername">
@@ -88,7 +88,7 @@ export function RegistrationView(props) {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        {vales.usernameErr && <p>{values.usernameErr}</p>}
+        {values.usernameErr && <p>{values.usernameErr}</p>}
       </Form.Group>
 
       <Form.Group controlId="formPassword">
@@ -110,7 +110,7 @@ export function RegistrationView(props) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        {vales.emailErr && <p>{values.emailErr}</p>}
+        {values.emailErr && <p>{values.emailErr}</p>}
       </Form.Group>
 
       <Form.Group controlId="updateBirthday">

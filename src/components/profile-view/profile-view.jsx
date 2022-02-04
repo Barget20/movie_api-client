@@ -22,10 +22,11 @@ return (
           <Col xs={12} md={6} lg={3} key={_id} className="fav-movie">
           <Figure>
           <Link to={`/movies/${_id}`}>
-            <Figure.Image
+            <Figure.Image>
             src={movies.ImagePath}
             alt={movies.Title}
-            />
+            </Figure.Image>
+            {/* onClick={() => {props.handleFavoritesClick()}} */}
             <Figure.Caption>
               {Title}
             </Figure.Caption>
@@ -70,3 +71,60 @@ return (
         Update
       </button>
     </form>
+
+//edit username
+editUser =(e) => {
+  e.preventDefault();
+  const Username = localStorage.getItem('user');
+  const token= localStorage.getItem('token');
+
+axios
+  .put("https://movie-api-2022.herokuapp.com/users/${Username}",
+  {
+  Username: this.state.Username,
+    Password: this.sate.Password,
+    Email: this.state.Email,
+    Birthday: this.state.Birthday,
+  },
+  {
+    headers: {Authroization: `Bearer ${token}`},
+  },
+  );
+  
+axios 
+  .then((response) => {
+    this.setSate({
+      Username: response.data.Username,
+      Password: response.data.Password,
+      Email: response.data.Email,
+      Birthday: response.data.Birthday,
+    });
+
+    localStorage.setItem('user', this.state.Username);
+    alert("Profile updated");
+    window.open('/profile', '_self');
+  });
+};
+
+//delete a movie from FavoriteMovies list
+onRemoveFavorite = (e, movie) = {
+  e.preventDefault(),
+  const Username = localStorage.getItem('user'),
+  const token = localStorage.getItem('token'),
+
+  axios
+    .delete(
+      "https://movie-api-2022.herokuapp.com/users/${Username}/movies/$movie.id}",
+      {
+        headers: { Authroization: `Bearer ${token}`},
+      }
+    )
+    .then((reponse) => {
+      console.log(response);
+      alert("Movie removed");
+      this.componentDidMount();
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+};

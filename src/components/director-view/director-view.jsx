@@ -12,7 +12,6 @@ export class DirectorView extends React.Component {
 
     return (
       <Card>
-        <Card.Img varient="top" src={movie.ImagePath} />
         <Card.Body>
           <Card.Title>Director</Card.Title>
           <Card.Text>
@@ -45,5 +44,5 @@ DirectorView.propTypes = {
     Birthyear: PropTypes.string,
     Deathyear: PropTypes.string,
   }),
-  onBackClick: Proptypes.fun.isRequired,
+  onBackClick: PropTypes.func.isRequired,
 };

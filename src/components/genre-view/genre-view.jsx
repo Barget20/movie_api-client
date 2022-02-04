@@ -12,7 +12,6 @@ export class GenreView extends React.Component {
 
     return (
       <Card>
-        <Card.Img varient="top" src={movie.ImagePath} />
         <Card.Body>
           <Card.Title>Genre</Card.Title>
           <Card.Text>
