@@ -19,7 +19,7 @@ onAddFavorite = (movie) => {
 
   axios
     .post(
-      `https://movie-api-2022.herokuapp.com/users/${username}/favoritesList/$movie._id}`,
+      `https://movie-api-2022.herokuapp.com/users/${username}/favoritesList/${movie._id}`,
       {},
       {
         headers: { Authorization: `Bearer ${token}`},

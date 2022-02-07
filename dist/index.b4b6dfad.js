@@ -31679,7 +31679,7 @@ class MovieCard extends _reactDefault.default.Component {
     /* // Add movie to FavoriteMovies list */ onAddFavorite = (movie)=>{
         const username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
-        _axiosDefault.default.post(`https://movie-api-2022.herokuapp.com/users/${username}/favoritesList/$movie._id}`, {
+        _axiosDefault.default.post(`https://movie-api-2022.herokuapp.com/users/${username}/favoritesList/${movie._id}`, {
         }, {
             headers: {
                 Authorization: `Bearer ${token}`
