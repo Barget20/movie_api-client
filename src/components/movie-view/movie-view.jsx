@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -7,18 +6,7 @@ import PropTypes from "prop-types";
 import "./movie-view.scss";
 
 export class MovieView extends React.Component {
-  keypressCallback(event) {
-    console.log(event.key);
-  }
-
-  componentDidMount() {
-    document.addEventListener("keypress", this.keypressCallback);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener("keypress", this.keypressCallback);
-  }
-
+  
   render() {
     const { movie, onBackClick } = this.props;
 
@@ -40,8 +28,7 @@ export class MovieView extends React.Component {
             <Button
               onClick={() => {
                 onBackClick(null);
-              }}
-            >
+              }}>
               Back
             </Button>
           </div>
@@ -55,5 +42,5 @@ MovieView.propTypes = {
   movie: PropTypes.shape({
     Title: PropTypes.string,
   }).isRequired,
-  onMovieClick: PropTypes.func.isRequired,
+  onBackClick: PropTypes.func.isRequired,
 };

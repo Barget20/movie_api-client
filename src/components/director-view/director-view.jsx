@@ -8,7 +8,7 @@ import "./director-view.scss";
 
 export class DirectorView extends React.Component {
   render() {
-    const { movie, director } = this.props;
+    const { onBackClick, director } = this.props;
 
     return (
       <Card>
@@ -30,6 +30,12 @@ export class DirectorView extends React.Component {
             <span className="label">Popular Titles:</span>
             <span className="value">{director.PopTitles}</span>
           </Card.Text>
+          <Button
+              onClick={() => {
+                onBackClick(null);
+              }}>
+              Back
+            </Button>
         </Card.Body>
       </Card>
     );

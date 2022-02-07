@@ -35,7 +35,7 @@ onAddFavorite = (movie) => {
 };
 
 render() {
-  const { movie } = this.props;
+  const { movie, onBackClick } = this.props;
   // const {favorites, setFavorites } = this.props;
   // const addFavoriteMovie = (movie) => {
   //   const newFavoriteList = {...favorites, movie};
@@ -64,13 +64,9 @@ render() {
 }
 
 
-  
-
-          
-
 MovieCard.propTypes = {
   movie: PropTypes.shape({
     Title: PropTypes.string,
   }).isRequired,
-  // onMovieClick: PropTypes.func.isRequired
+  onBackClick: PropTypes.func.isRequired
 };
