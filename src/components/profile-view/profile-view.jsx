@@ -5,44 +5,6 @@ import { Link } from "react-router-dom";
 import ".profile-view.scss";
 
 
-return (
-  <Card>
-    <Card.Body>
-      <Row>
-        <Col xs={12}>
-          <h4>Favorite Movies</h4>
-        </Col>
-      </Row>
-    {/* <div>
-    <p>User: {user.Username}</p>
-    <p>Email: {user.Email}</p>
-    <div> */}
-      {favoriteMovieList.map((ImagePath, Title, _id) => {
-        return (
-          <Col xs={12} md={6} lg={3} key={_id} className="fav-movie">
-          <Figure>
-          <Link to={`/movies/${_id}`}>
-            <Figure.Image>
-            src={movies.ImagePath}
-            alt={movies.Title}
-            </Figure.Image>
-            {/* onClick={() => {props.handleFavoritesClick()}} */}
-            <Figure.Caption>
-              {Title}
-            </Figure.Caption>
-          </Link>
-          </Figure>
-            
-            <Button varient="secondary" onClick={() => removeFav(_id)}>
-              Remove from list
-            </Button>
-            </Col>
-        )})}
-      </Card.Body>
-  </Card>
-);
-
-
     <form className="profile-form" onSubmit={(e) => handleSubmit(e)}>
       <h2>Want to change some info?</h2>
       <label>Username:</label>
@@ -79,7 +41,7 @@ editUser =(e) => {
   const token= localStorage.getItem('token');
 
 axios
-  .put("https://movie-api-2022.herokuapp.com/users/${Username}",
+  .put(`https://movie-api-2022.herokuapp.com/users/${Username}`,
   {
   Username: this.state.Username,
     Password: this.sate.Password,
@@ -107,14 +69,13 @@ axios
 };
 
 //delete a movie from FavoriteMovies list
-onRemoveFavorite = (e, movie) = {
-  e.preventDefault(),
-  const Username = localStorage.getItem('user'),
-  const token = localStorage.getItem('token'),
+onRemoveFavorite = (movie) => {
+  const username = localStorage.getItem('user');
+  const token = localStorage.getItem('token');
 
   axios
     .delete(
-      "https://movie-api-2022.herokuapp.com/users/${Username}/movies/$movie.id}",
+      `https://movie-api-2022.herokuapp.com/users/${username}/favoritesList/${movie._id}`,
       {
         headers: { Authroization: `Bearer ${token}`},
       }
@@ -126,5 +87,42 @@ onRemoveFavorite = (e, movie) = {
     })
     .catch(function (error) {
       console.log(error);
-    });
+    })
 };
+
+return (
+  <Card>
+    <Card.Body>
+      <Row>
+        <Col xs={12}>
+          <h4>Favorite Movies</h4>
+        </Col>
+      </Row>
+    {/* <div>
+    <p>User: {user.Username}</p>
+    <p>Email: {user.Email}</p>
+    <div> */}
+      {favoriteMovieList.map((ImagePath, Title, _id) => {
+        return (
+          <Col xs={12} md={6} lg={3} key={_id} className="fav-movie">
+          <Figure>
+          <Link to={`/movies/${_id}`}>
+            <Figure.Image>
+            src={movies.ImagePath}
+            alt={movies.Title}
+            </Figure.Image>
+            {/* onClick={() => {props.handleFavoritesClick()}} */}
+            <Figure.Caption>
+              {Title}
+            </Figure.Caption>
+          </Link>
+          </Figure>
+            
+            <Button varient="secondary" onClick={() => removeFav(_id)}>
+              Remove from list
+            </Button>
+            </Col>
+        )})}
+      </Card.Body>
+  </Card>
+);
