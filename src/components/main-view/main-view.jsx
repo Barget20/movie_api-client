@@ -9,6 +9,7 @@ import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { GenreView } from "../genre-view/genre-view";
 import { DirectorView } from "../director-view/director-view";
+import { ProfileView } from "../profile-view/profile-view";
 import { Row, Col, Navbar, Nav } from "react-bootstrap";
 
 export class MainView extends React.Component {
@@ -68,6 +69,7 @@ export class MainView extends React.Component {
     const { movies, user } = this.state;
     return (
       <Router>
+        <Menubar user={user} />
         <Route
           path="/movies/:movieId"
           render={({ match, history }) => {
@@ -92,23 +94,20 @@ export class MainView extends React.Component {
               return (
                 <div>
                   <Row>
-                    <Menubar />
                   </Row>
-                  <Row>
                     <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
-                    if (movies.length === 0) return <div className="main-view"/>; 
+                 </div>  
                     );
                     return (
-                   <Row>
+                      <>
+                  <Row>
                     {movies.map((m) => (
                     <Col md={3} key={m._id}>
                       <MovieCard movie={m} />
                     </Col>
-                    ))};
+                    ))}
                     </Row>
-                    )
-                  </Row>
-                </div>
+               </>
               );
           }}
         />
