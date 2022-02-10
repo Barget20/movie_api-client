@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Form, Button, Card, Figure, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import ".profile-view.scss";
+import "./profile-view.scss";
 import PropTypes from "prop-types";
 
 export class ProfileView extends React.Component {
@@ -69,12 +69,12 @@ axios
   .put(`https://movie-api-2022.herokuapp.com/users/${Username}`,
   {
   Username: newUserName ? newUsername : this.state.Username,
-    Password: newPassword ? newPassword : this.sate.Password,
+    Password: newPassword ? newPassword : this.state.Password,
     Email: newEmail? newEmail : this.state.Email,
     Birthday: newBirthday ? newBirthday : this.state.Birthday,
   },
   {
-    headers: {Authroization: `Bearer ${token}`},
+    headers: {Authorization: `Bearer ${token}`},
   })
 
   .then((response) => {
@@ -88,7 +88,7 @@ axios
     });
   
     localStorage.setItem('user', response.data.Username);
-    window.open('/profile', '_self');
+    window.open(`/users/${response.data.Username}`, '_self');
   })
   .catch(function (error) {
     console.log(error);
@@ -117,6 +117,8 @@ onRemoveFavorite = (e, movie) => {
     });
 };
 
+
+
 render () {
   const {movies} = this.props;
   const {Username, Birthday, Email, FavoriteMovieList} = this.state;
@@ -125,18 +127,41 @@ render () {
     return null;
   }
 
+//Deregister user
+deleteUser=(e, Username) => {
+    e.preventDefault();
+    const Username = localStorage.getItem('user');
+    const token= localStorage.getItem('token');
+  
+  axios
+    .delete(`https://movie-api-2022.herokuapp.com/users/${Username}`, {
+      headers: {Authorization: `Bearer ${token}`},
+    })
+    .then((response) => {
+      console.log(response);
+      alert("Profile deleted");
+      localStorage.removeItem('user');
+      localStorage.removeItem('token');
+      window.open('/', '_self');
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
+
+
+
 return (
+  <>
     <Container className="profile-view" align="center">
         <Card className="profile-card">
           <h2>Username: {`${this.state.Username}`}</h2>
-          <p>Email: {`${this.sate.Email}`}</p>
+          <p>Email: {`${this.state.Email}`}</p>
           <p>Birthday: {`${this.state.Birthday}`}</p>
           </Card>
-        
-            <Card className="update-profile">
-              <Card.Body>
-                <Card.Title>Profile</Card.Title>
-                <Form onSubmit={(e) => 
+          <Card>
+            <Form onSubmit={(e) => 
                 this.editUser(e,
                   this.Username,
                   this.Password,
@@ -144,26 +169,19 @@ return (
                   this.Birthday
                   )}
                   >
-
-                  </Form>
-              </Card.Body>
-            </Card>
-          
-              <Form.Group controlId="formBasicusername">
+                    <Form.Group controlId="formBasicusername">
                 <Form.Label className="form-label">
                   Username
                   </Form.Label>
                   <Form.Control
                   type="text"
                   placeholder="Change Username"
-                  value={user.Username}
                   onChange={(e) => this.setUsername(e.target.value)}
                 />
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">
-                <Form.Label className="form-label">      
-                </Form.Label>
+                <Form.Label className="form-label"></Form.Label>
                 <Form.Control
                 type="password"
                 placeholder="New Password"
@@ -187,7 +205,9 @@ return (
                 />
               </Form.Group>
                 <Button variant="danger" type="submit">Update</Button>
-
+                <Button className="deregister user" varient="secondary" onClick={()=> this.deleteUser()}>Delete User</Button>
+            </Form>
+          </Card>
       </Container>
 
       <Container>
@@ -227,6 +247,7 @@ return (
           </div>
         </Card.Body>
       </Container>
+      </>
   );
 }}
 
