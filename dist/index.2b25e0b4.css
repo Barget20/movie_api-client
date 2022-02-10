@@ -92,6 +92,31 @@
 }
 
 
+.fav-movie {
+  margin-bottom: 15 px;
+}
+.fav-movie figure {
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: auto;
+  width: 100% img;
+  width-display: block;
+  width-height: 400px;
+  width-margin: auto;
+}
+.fav-movie figure figcaption {
+  text-align: center;
+}
+.fav-movie button.btn {
+  display: block;
+  margin: auto;
+}
+
+.card {
+  margin-bottom: 15px;
+}
 .movie_api {
   color: steelblue;
 }

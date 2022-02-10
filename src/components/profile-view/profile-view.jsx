@@ -68,7 +68,7 @@ editUser =(e, newUsername, newPassword, newEmail, newBirthday) => {
 axios
   .put(`https://movie-api-2022.herokuapp.com/users/${Username}`,
   {
-  Username: newUserName ? newUsername : this.state.Username,
+  Username: newUsername ? newUsername : this.state.Username,
     Password: newPassword ? newPassword : this.state.Password,
     Email: newEmail? newEmail : this.state.Email,
     Birthday: newBirthday ? newBirthday : this.state.Birthday,
@@ -104,7 +104,7 @@ onRemoveFavorite = (e, movie) => {
     .delete(
       `https://movie-api-2022.herokuapp.com/users/${username}/favoritesList/${movie._id}`,
       {
-        headers: { Authroization: `Bearer ${token}`},
+        headers: { Authorization: `Bearer ${token}`},
       }
     )
     .then((response) => {
@@ -117,7 +117,27 @@ onRemoveFavorite = (e, movie) => {
     });
 };
 
+//Deregister user
+deleteUser=(e) => {
+  e.preventDefault();
+  const Username = localStorage.getItem('user');
+  const token= localStorage.getItem('token');
 
+axios
+  .delete(`https://movie-api-2022.herokuapp.com/users/${Username}`, {
+    headers: {Authorization: `Bearer ${token}`},
+  })
+  .then((response) => {
+    console.log(response);
+    alert("Profile deleted");
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    window.open('/', '_self');
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+}
 
 render () {
   const {movies} = this.props;
@@ -126,31 +146,6 @@ render () {
   if (!Username) {
     return null;
   }
-
-//Deregister user
-deleteUser=(e, Username) => {
-    e.preventDefault();
-    const Username = localStorage.getItem('user');
-    const token= localStorage.getItem('token');
-  
-  axios
-    .delete(`https://movie-api-2022.herokuapp.com/users/${Username}`, {
-      headers: {Authorization: `Bearer ${token}`},
-    })
-    .then((response) => {
-      console.log(response);
-      alert("Profile deleted");
-      localStorage.removeItem('user');
-      localStorage.removeItem('token');
-      window.open('/', '_self');
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-}
-
-
-
 
 return (
   <>
@@ -205,7 +200,7 @@ return (
                 />
               </Form.Group>
                 <Button variant="danger" type="submit">Update</Button>
-                <Button className="deregister user" varient="secondary" onClick={()=> this.deleteUser()}>Delete User</Button>
+                <Button className="deregister user" varient="secondary" onClick={(e)=> this.deleteUser(e)}>Delete User</Button>
             </Form>
           </Card>
       </Container>
@@ -236,7 +231,7 @@ return (
                         <Button className="profile-button remove favorite"
                         size="sm"
                         variant="danger"
-                        onClick={(e) => this.onRemoveFavorite(e, movie._id)}>
+                        onClick={(e) => this.onRemoveFavorite(e, movie)}>
                           Remove
                         </Button>
                       </Card.Body>
