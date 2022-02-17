@@ -1004,7 +1004,6 @@ $parcel$ReactRefreshHelpers$98a3.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
@@ -1046,7 +1045,6 @@ class MyFlixApplication extends _reactDefault.default.Component {
 }
 const container = document.getElementsByClassName('app-container')[0];
 _reactDomDefault.default.render(/*#__PURE__*/ _reactDefault.default.createElement(MyFlixApplication), container);
-exports.default = App;
 
   $parcel$ReactRefreshHelpers$98a3.postlude(module);
 } finally {
@@ -22826,6 +22824,7 @@ var _directorView = require("../director-view/director-view");
 var _profileView = require("../profile-view/profile-view");
 var _actions = require("../../actions/actions");
 var _moviesList = require("../movies-list/movies-list");
+var _moviesListDefault = parcelHelpers.interopDefault(_moviesList);
 //Not reading container, navbar, or nav//
 var _reactBootstrap = require("react-bootstrap");
 //export 
@@ -22897,7 +22896,7 @@ class MainView extends _reactDefault.default.Component {
                                 ]
                             }, void 0, true, void 0, void 0));
                             // if (movies.length === 0) return <div className="main-view" />;
-                            return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_moviesList.MoviesList, {
+                            return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_moviesListDefault.default, {
                                 movies: movies
                             }, void 0, false, void 0, void 0));
                         //     }} />
