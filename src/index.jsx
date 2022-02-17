@@ -6,26 +6,11 @@ import { Provider } from 'react-redux';
 import moviesApp from './reducers/reducers';
 import MainView from './components/main-view/main-view';
 import './index.scss';
+import {devToolsEnhancer} from 'redux-devtools-extension';
 
-
-// function App() {
 const myFlixStore = createStore(moviesApp, devToolsEnhancer());
 
-//     return (
-//         <Provider store={myFlixStore}>
-//             <MainView />
-//         </Provider>
-
-//     );
-// }
-
-
 class MyFlixApplication extends React.Component {
-
-   // constructor() {
-       //Executed once component is created//
-        // super();
-   // }
 
     render() {
         return (
@@ -36,21 +21,8 @@ class MyFlixApplication extends React.Component {
         </Provider> 
     );
     }
-
-    //Executed after component is added to DOM//
-    //componentDidMount () {
-    //}
-
-    //Executed after componenet state or props change//
-    //componentDidUpdate() {
-        //render();
-        //The render() part represents a change in the state/prop
-    //}
-
-    //Executed before components removed from the DOM//
-    //componenetWillUnmount() {
-    //}
-}
+    }
+    
 
 const container = document.getElementsByClassName('app-container')[0];
 
