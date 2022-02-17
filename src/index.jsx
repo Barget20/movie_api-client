@@ -5,16 +5,17 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import moviesApp from './reducers/reducers';
 import MainView from './components/main-view/main-view';
-import './index.scss';
 import {devToolsEnhancer} from 'redux-devtools-extension';
+import './index.scss';
 
-const myFlixStore = createStore(moviesApp, devToolsEnhancer());
+
+const myStore = createStore(moviesApp, devToolsEnhancer());
 
 class MyFlixApplication extends React.Component {
 
     render() {
         return (
-            <Provider store={store}>
+            <Provider store={myStore}>
             <Container>
                 <MainView /> 
             </Container>

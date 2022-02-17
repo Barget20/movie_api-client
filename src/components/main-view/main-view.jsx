@@ -1,9 +1,10 @@
 import React from "react";
 import axios from "axios";
+import "./main-view.scss";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import { connect } from 'react-redux';
+//Not reading menubar//
 import { Menubar } from "../navbar/navbar";
-import "./main-view.scss";
 import { LoginView } from "../login-view/login-view";
 import { RegistrationView } from "../registration-view/registration-view";
 import { MovieView } from "../movie-view/movie-view";
@@ -12,7 +13,8 @@ import { DirectorView } from "../director-view/director-view";
 import { ProfileView } from "../profile-view/profile-view";
 import { setMovies } from "../../actions/actions";
 import { MoviesList } from "../movies-list/movies-list";
-import { Row, Col, Navbar, Nav } from "react-bootstrap";
+//Not reading container, navbar, or nav//
+import { Row, Col, Container, Navbar, Nav } from "react-bootstrap";
 
 //export 
 class MainView extends React.Component {
@@ -61,6 +63,14 @@ class MainView extends React.Component {
     localStorage.setItem("token", authData.token);
     localStorage.setItem("user", authData.user.Username);
     this.getMovies(authData.token);
+  }
+
+  onLoggedOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.setState({
+      user: null
+    });
   }
 
   render() {
@@ -192,4 +202,4 @@ let mapStateToProps = (state) => {
   return { movies: state.movies };
 };
 
-export default connect(mapStateToProps, { setMovies} )(MainView);
+export default connect(mapStateToProps, {setMovies} )(MainView);

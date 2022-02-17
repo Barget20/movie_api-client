@@ -7,6 +7,7 @@ export function Menubar({ user }) {
     localStorage.clear();
     window.open("/", "_self");
   };
+ 
 
   return (
     <div style={{ marginBottom: 80 }}>
@@ -45,4 +46,5 @@ export function Menubar({ user }) {
       </Navbar>
     </div>
   );
+
 }
