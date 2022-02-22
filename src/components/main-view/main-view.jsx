@@ -91,18 +91,7 @@ class MainView extends React.Component {
                     <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
                  </div>
               );
-            // if (movies.length === 0) return <div className="main-view" />;
                     return <MoviesList movies={movies}/>;
-              //     }} />
-              //         <>
-              //     <Row>
-              //       {movies.map((m) => (
-              //       <Col md={3} key={m._id}>
-              //         <MovieCard movie={m} />
-              //       </Col>
-              //       ))}
-              //       </Row>
-              //  </>
             }}
           />
         </Row>
@@ -129,7 +118,7 @@ class MainView extends React.Component {
             return (
               <Col md={8}>
                 <MovieView
-                  movie={movies.find((m) => m._Id === match.params.movieId)}
+                  movie={movies.find((m) => m._id === match.params.movieId)}
                   onBackClick={() => history.goBack()}
                 />
               </Col>
