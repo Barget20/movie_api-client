@@ -81,6 +81,13 @@ class MainView extends React.Component {
     return (
       <Router>
 
+        <Menubar user={user}/>
+{/* //The following breaks it */}
+        {/* <Menubar onLoggedOut={() => this.onLoggedOut ()}/>
+        <Row>
+          {user && <Link to={`/users/${user}`} >logged in as {user} </Link>}
+        </Row> */}
+
         <Row className="main-view justify-content-md-center">
         <Route exact path="/"
           render={() => {

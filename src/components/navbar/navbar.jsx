@@ -1,6 +1,7 @@
 import React from "react";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+// import VisibilityFilterInput from "../visibility-filter-input";
 
 export function Menubar({ user }) {
   const onLoggedOut = () => {
