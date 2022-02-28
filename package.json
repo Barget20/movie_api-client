@@ -424,15 +424,10 @@
     "range-parser": "^1.2.0",
     "rc": "^1.2.8",
     "react": "^17.0.2",
-    "react-bootstrap": "^2.1.1",
     "react-dom": "^17.0.2",
-    "react-redux": "^7.2.6",
     "react-refresh": "^0.9.0",
-    "react-router-dom": "^5.2.1",
     "read-all-stream": "^3.1.0",
     "readable-stream": "^2.3.7",
-    "redux": "^4.1.2",
-    "redux-devtools-extension": "^2.13.9",
     "regenerator-runtime": "^0.13.9",
     "registry-auth-token": "^3.4.0",
     "registry-url": "^3.1.0",
@@ -560,8 +555,5 @@
   "bugs": {
     "url": "https://github.com/Barget20/Movie_API-Client/issues"
   },
-  "homepage": "https://github.com/Barget20/Movie_API-Client#readme",
-  "devDependencies": {
-    "@parcel/transformer-sass": "^2.2.1"
-  }
+  "homepage": "https://github.com/Barget20/Movie_API-Client#readme"
 }

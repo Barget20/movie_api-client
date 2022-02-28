@@ -1,29 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Container from 'react-bootstrap/Container';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import moviesApp from './reducers/reducers';
-import MainView from './components/main-view/main-view';
-import {devToolsEnhancer} from 'redux-devtools-extension';
+import {MainView} from './components/main-view/main-view';
+
 import './index.scss';
-
-
-const myStore = createStore(moviesApp, devToolsEnhancer());
 
 class MyFlixApplication extends React.Component {
 
+   // constructor() {
+       //Executed once component is created//
+        // super();
+   // }
+
     render() {
         return (
-            <Provider store={myStore}>
-            <Container>
-                <MainView /> 
-            </Container>
-        </Provider> 
-    );
+           <MainView />
+        );
     }
-    }
-    
+
+    //Executed after component is added to DOM//
+    //componentDidMount () {
+    //}
+
+    //Executed after componenet state or props change//
+    //componentDidUpdate() {
+        //render();
+        //The render() part represents a change in the state/prop
+    //}
+
+    //Executed before components removed from the DOM//
+    //componenetWillUnmount() {
+    //}
+}
 
 const container = document.getElementsByClassName('app-container')[0];
 
