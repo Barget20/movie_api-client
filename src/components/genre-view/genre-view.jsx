@@ -10,6 +10,13 @@ export class GenreView extends React.Component {
   render() {
     const { onBackClick, genre } = this.props;
 
+/**
+     * The Genre page will look like as follows.
+     * 
+     * @params {*} Genre name
+     * @params {*} description of genre
+     */
+
     return (
       <Card>
         <Card.Body>

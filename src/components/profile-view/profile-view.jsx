@@ -117,7 +117,7 @@ onRemoveFavorite = (e, movie) => {
     });
 };
 
-//Deregister user
+//Deletes user
 deleteUser=(e) => {
   e.preventDefault();
   const Username = localStorage.getItem('user');
