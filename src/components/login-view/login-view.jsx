@@ -77,10 +77,10 @@ export function LoginView(props) {
   );
 }
 
-// LoginView.propTypes = {
-//   user: PropTypes.shape({
-//     Password: PropTypes.string,
-//     Username: PropTypes.string,
-//   }).isRequired,
-//   onLoggedIn: PropTypes.func.isRequired,
-// }
+LoginView.propTypes = {
+  user: PropTypes.shape({
+    Password: PropTypes.string,
+    Username: PropTypes.string,
+  }).isRequired,
+  onLoggedIn: PropTypes.func.isRequired,
+}

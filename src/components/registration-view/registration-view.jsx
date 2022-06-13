@@ -34,13 +34,13 @@ export function RegistrationView(props) {
       setPassword("Password must be 6 characters long");
     }
     return isReq;
-    if (!email) {
-      setEmailErr("Email is Required");
-      isReq = false;
-    } else if (email.indexOf("@") === -1) {
-      setEmail("Email is invalid");
-    }
-    return isReq;
+    // if (!email) {
+    //   setEmailErr("Email is Required");
+    //   isReq = false;
+    // } else if (email.indexOf("@") === -1) {
+    //   setEmail("Email is invalid");
+    // }
+    // return isReq;
   };
 
   const handleSubmit = (e) => {
@@ -128,3 +128,12 @@ export function RegistrationView(props) {
     </Form>
   );
 }
+
+RegistrationView.propTypes = {
+  register: PropTypes.shape({
+    Username: PropTypes.string.isRequired,
+    Password: PropTypes.string.isRequired,
+    Email: PropTypes.string.isRequired,
+    Birthday: PropTypes.number.isRequired
+  })
+};
