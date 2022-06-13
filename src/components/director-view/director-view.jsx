@@ -10,26 +10,35 @@ export class DirectorView extends React.Component {
   render() {
     const { onBackClick, director } = this.props;
 
+    /**
+     * The director page will look like as follows.
+     * 
+     * @params {*} Name
+     * @params {*} Birthday
+     * @params {*} Death Date
+     * @params {*} Popular titles director is known for
+     */
+
     return (
       <Card>
         <Card.Body>
           <Card.Title>Director</Card.Title>
           <Card.Text>
-            <span className="label">Name:</span>
+            <span className="label">Name: </span>
             <span className="value">{director.Name}</span>
           </Card.Text>
           <Card.Text>
-            <span className="label">Birth:</span>
+            <span className="label">Birth: </span>
             <span className="value">{director.Birth}</span>
           </Card.Text>
-          <Card.Text>
-            <span className="label">Death:</span>
+          {/* <Card.Text>
+            <span className="label">Death: </span>
             <span className="value">{director.Death}</span>
           </Card.Text>
           <Card.Text>
-            <span className="label">Popular Titles:</span>
+            <span className="label">Popular Titles: </span>
             <span className="value">{director.PopTitles}</span>
-          </Card.Text>
+          </Card.Text> */}
           <Button
               onClick={() => {
                 onBackClick(null);

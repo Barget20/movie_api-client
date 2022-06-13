@@ -35,11 +35,6 @@ onAddFavorite = (movie) => {
 
 render() {
   const { movie, onBackClick } = this.props;
-  // const {favorites, setFavorites } = this.props;
-  // const addFavoriteMovie = (movie) => {
-  //   const newFavoriteList = {...favorites, movie};
-  //   setFavorites(newFavoriteList);
-  // };
 
   return (
     <Card>
