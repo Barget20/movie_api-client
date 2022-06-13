@@ -1,7 +1,6 @@
 import React from "react";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-// import VisibilityFilterInput from "../visibility-filter-input";
 
 export function Menubar({ user }) {
   const onLoggedOut = () => {
@@ -16,7 +15,6 @@ export function Menubar({ user }) {
         expand="lg"
         fixed="top"
         className="nav-bar"
-        // bg="primary"
         varient="dark"
       >
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
