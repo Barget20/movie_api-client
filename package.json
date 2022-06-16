@@ -2,7 +2,7 @@
   "name": "movie_api-client",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "source": "index.js",
   "dependencies": {
     "abab": "^2.0.5",
     "abortcontroller-polyfill": "^1.7.3",
@@ -344,7 +344,6 @@
     "package-json-path": "^1.0.9",
     "package.json": "^2.0.1",
     "pako": "^1.0.11",
-    "parcel": "^2.2.0",
     "parent-module": "^1.0.1",
     "parse-asn1": "^5.1.6",
     "parse-json": "^2.2.0",
@@ -549,6 +548,8 @@
     "yaml": "^1.10.2"
   },
   "scripts": {
+    "start": "parcel",
+    "build": "parcel build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -562,6 +563,7 @@
   },
   "homepage": "https://github.com/Barget20/Movie_API-Client#readme",
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.2.1"
+    "@parcel/transformer-sass": "^2.6.0",
+    "parcel": "^2.6.0"
   }
 }
