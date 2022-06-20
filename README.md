@@ -19,4 +19,6 @@
   <p> npm install react-redux --save <p>
   <p> npm install --save redux-devtools-extension <p>  
     
+<h2> Image </h2>
 
+<img width="1568" alt="movie_api_screenshot" src="https://user-images.githubusercontent.com/89669426/174642222-3281e20d-3998-4f8c-99e4-6caa39103c92.png">
