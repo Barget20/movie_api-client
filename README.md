@@ -19,6 +19,4 @@
   <p> npm install react-redux --save <p>
   <p> npm install --save redux-devtools-extension <p>  
     
-<h2> Heroku: </h2>
-  
-  <p> 1) git push heroku main (to test things) <br>
+
