@@ -2,71 +2,75 @@
   box-sizing: border-box;
   font-family: garamond;
   font-size: 40 px;
+  color: #f5f5f5;
   background-color: #4511d4;
-  color: #f5f5f5;
-}
-* {
-  box-sizing: border-box;
-  font-family: garamond;
-  font-size: 40 px;
-  background-color: #080333;
-  color: #f5f5f5;
-}
-* {
-  box-sizing: border-box;
-  font-family: garamond;
-  font-size: 40 px;
-  background-color: #940000;
-  color: #f5f5f5;
-}
-* {
-  box-sizing: border-box;
-  font-family: garamond;
-  font-size: 50 px;
-  background-color: #080333;
-  color: #f5f5f5;
 }
 
 * {
   box-sizing: border-box;
   font-family: garamond;
-  font-size: 50 px;
-  background-color: #080333;
+  font-size: 40 px;
   color: #f5f5f5;
+  background-color: #080333;
 }
+
+* {
+  box-sizing: border-box;
+  font-family: garamond;
+  font-size: 40 px;
+  color: #f5f5f5;
+  background-color: #940000;
+}
+
+
+
+* {
+  box-sizing: border-box;
+  font-family: garamond;
+  font-size: 50 px;
+  color: #f5f5f5;
+  background-color: #080333;
+}
+
 .fav-movie {
   margin-bottom: 15 px;
 }
+
 .fav-movie figure {
-  position: relative;
-  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  margin: auto;
   width: 100% img;
   width-display: block;
   width-height: 400px;
   width-margin: auto;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
 }
+
 .fav-movie figure figcaption {
   text-align: center;
 }
+
 .fav-movie button.btn {
-  display: block;
   margin: auto;
+  display: block;
 }
 
 .card {
   margin-bottom: 15px;
 }
+
 * {
   box-sizing: border-box;
   font-family: garamond;
   font-size: 5000 px;
-  background-color: #080333;
   color: #527fd3;
+  background-color: #080333;
 }
+
 .movie_api {
-  color: steelblue;
+  color: #4682b4;
 }
+
 /*# sourceMappingURL=index.2b25e0b4.css.map */
